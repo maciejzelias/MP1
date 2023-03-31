@@ -1,0 +1,15 @@
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/MP1
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/MP1.deps.json
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/MP1.runtimeconfig.json
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/MP1.dll
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/MP1.pdb
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.csproj.AssemblyReference.cache
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.AssemblyInfoInputs.cache
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.AssemblyInfo.cs
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.csproj.CoreCompileInputs.cache
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.dll
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/refint/MP1.dll
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.pdb
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.genruntimeconfig.cache
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/ref/MP1.dll
