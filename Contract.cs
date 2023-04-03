@@ -1,7 +1,15 @@
 
-
-public class Contract
+namespace mp1
 {
-    int duration;
-    DateTime startDate { get; set; }
+    public class Contract
+    {
+        int duration { get; set; }
+        DateTime startDate { get; set; }
+
+        public Contract(int dur, DateTime time)
+        {
+            duration = dur;
+            startDate = time;
+        }
+    }
 }
