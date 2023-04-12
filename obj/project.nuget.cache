@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "/A2wygyBaElWNrGJV5J6SeE5iOAgFptJBtA6jDmhyRgefi24lgsoL6xUyrEL+CYdFzpp5c4tpFytPmIE3Ypoag==",
+  "dgSpecHash": "q5ro9zdiimtDu9e2k8q+EWcm4PT3hLZRtjHW3P/JrKgMwzV1wk8WVE2MH4t4rdCX8cAB+u24NwIJADDNjZ85gQ==",
   "success": true,
   "projectFilePath": "/Users/maciejzelias/Development/MAS/MP1/MP1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/maciejzelias/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

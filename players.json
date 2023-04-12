@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Lionel Messi",
+    "tshirtNumber": 30,
+    "PlayerContract": {
+      "durInYears": 5,
+      "startDate": "2020-02-01T00:00:00"
+    },
+    "salary": 5000,
+    "age": 2023,
+    "previousClubList": []
+  },
+  {
+    "name": "Cristiano Ronaldo",
+    "tshirtNumber": 7,
+    "PlayerContract": {
+      "durInYears": 2,
+      "startDate": "2021-01-01T00:00:00"
+    },
+    "salary": 6500,
+    "age": 2023,
+    "previousClubList": [
+      "Wisla Sandomierz",
+      "Legia Warszawa"
+    ]
+  },
+  {
+    "name": "Neymar Jr",
+    "tshirtNumber": 11,
+    "PlayerContract": {
+      "durInYears": 1,
+      "startDate": "2024-02-01T00:00:00"
+    },
+    "salary": 5000,
+    "age": 2023,
+    "previousClubList": [
+      "FC Barcelona",
+      "Real Madryt"
+    ]
+  }
+]

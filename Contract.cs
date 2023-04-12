@@ -3,13 +3,13 @@ namespace mp1
 {
     public class Contract
     {
-        int duration { get; set; }
-        DateTime startDate { get; set; }
+        public int durInYears { get; set; }
+        public DateTime startDate { get; set; }
 
-        public Contract(int dur, DateTime time)
+        public Contract(int duration, DateTime date)
         {
-            duration = dur;
-            startDate = time;
+            durInYears = duration;
+            startDate = date;
         }
     }
 }

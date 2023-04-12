@@ -1,10 +1,24 @@
+using System.Text.Json.Serialization;
+
 namespace mp1
 {
 
     public class Player
     {
-        string name;
-        int? opcjonalny { get; set; } // Atrybut opcjonalny
+        private string _name;
+        public string name
+        {
+            get => _name;
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentException("name null exception");
+                }
+                _name = value;
+            }
+        }
+        public int? tshirtNumber { get; set; } // Atrybut opcjonalny
         private Contract _playerContract; // Atrybut złozony
         public Contract PlayerContract
         {
@@ -13,29 +27,41 @@ namespace mp1
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("value");
+                    throw new ArgumentNullException("playerContract");
                 }
                 _playerContract = value;
             }
         }
-        private float salary { get; set; }
-        int birthdayYear;
-        int age // Atrybut pochodny
+        public float salary { get; }
+        public int birthdayYear;
+        public int age // Atrybut pochodny
         {
             get => DateTime.Now.Year - birthdayYear;
         }
-        private List<string> previousClubList = new List<string>(); // Atrybut powtarzalny
-        private static List<Player> playersList = new(); // Ekstensja
-        public Player(string name, int opcjonalny, Contract contract, float salary, int birthdayYear, List<string> clubList)
+        public List<string> previousClubList { get; set; } // Atrybut powtarzalny
+        // Ekstensja
+        private static List<Player> playersList = new();
+        // [JsonConstructor]
+        public Player(string name, Contract PlayerContract, float salary, int birthdayYear, List<string> clubList, int? tshirtNumber = null)
         {
             this.name = name;
-            this.opcjonalny = opcjonalny;
-            this.PlayerContract = contract;
+            this.PlayerContract = PlayerContract;
             this.salary = salary;
             this.birthdayYear = birthdayYear;
             this.previousClubList = clubList;
+            this.tshirtNumber = tshirtNumber;
             playersList.Add(this);
         }
+        // public Player(string name, Contract contract, float salary, int birthdayYear, List<string> clubList)
+        // {
+        //     this.name = name;
+        //     this.PlayerContract = contract;
+        //     this.salary = salary;
+        //     this.birthdayYear = birthdayYear;
+        //     this.previousClubList = clubList;
+        //     playersList.Add(this);
+
+        // }
 
         // Metoda klasowa
         public static void deletePlayer(Player playerToDelete)
@@ -55,15 +81,15 @@ namespace mp1
             return salary;
         }
 
-        public float getSalary(float incomeTax)
+        public float getSalary(int incomeTax)
         {
-            return salary * (incomeTax / 100.0f);
+            return salary - salary * (incomeTax / 100.0f);
         }
 
         // Przesłonięcie
         public override string ToString()
         {
-            return this.name + this.birthdayYear;
+            return this.name + " " + this.tshirtNumber;
         }
     }
 

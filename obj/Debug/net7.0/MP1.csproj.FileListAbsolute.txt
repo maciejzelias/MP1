@@ -13,3 +13,5 @@
 /Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.pdb
 /Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.genruntimeconfig.cache
 /Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/ref/MP1.dll
+/Users/maciejzelias/Development/MAS/MP1/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/maciejzelias/Development/MAS/MP1/obj/Debug/net7.0/MP1.csproj.CopyComplete
