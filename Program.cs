@@ -53,7 +53,7 @@ namespace mp1
             Contract contract3 = new Contract(1, new DateTime(2024, 2, 1));
             Contract contract4 = new Contract(4, new DateTime(2019, 5, 1));
 
-            List<String> prevClubs1 = new List<String> { };
+            List<String> prevClubs1 = new List<String> { "Legia" };
             Player player1 = new Player("Lionel Messi", contract1, 5000.0f, 1986, prevClubs1, 10);
 
             List<String> prevClubs2 = new List<String> { "Wisla Sandomierz", "Legia Warszawa" };

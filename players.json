@@ -1,14 +1,16 @@
 [
   {
     "name": "Lionel Messi",
-    "tshirtNumber": 30,
+    "tshirtNumber": 10,
     "PlayerContract": {
       "durInYears": 5,
       "startDate": "2020-02-01T00:00:00"
     },
     "salary": 5000,
     "age": 2023,
-    "previousClubList": []
+    "previousClubList": [
+      "Legia"
+    ]
   },
   {
     "name": "Cristiano Ronaldo",
@@ -26,7 +28,7 @@
   },
   {
     "name": "Neymar Jr",
-    "tshirtNumber": 11,
+    "tshirtNumber": null,
     "PlayerContract": {
       "durInYears": 1,
       "startDate": "2024-02-01T00:00:00"

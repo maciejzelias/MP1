@@ -38,17 +38,32 @@ namespace mp1
         {
             get => DateTime.Now.Year - birthdayYear;
         }
-        public List<string> previousClubList { get; set; } // Atrybut powtarzalny
-        // Ekstensja
-        private static List<Player> playersList = new();
+
+        private List<string> _prevClubs; // Atrybut powtarzalny
+        public List<string> previousClubList
+        {
+            get => _prevClubs;
+            set
+            {
+                foreach (string element in value)
+                {
+                    if (element == null)
+                    {
+                        throw new ArgumentNullException("Values in list can't be null");
+                    }
+                    _prevClubs = value;
+                }
+            }
+        }
+        private static List<Player> playersList = new(); // Ekstensja
         // [JsonConstructor]
-        public Player(string name, Contract PlayerContract, float salary, int birthdayYear, List<string> clubList, int? tshirtNumber = null)
+        public Player(string name, Contract PlayerContract, float salary, int birthdayYear, List<string> previousClubList, int? tshirtNumber = null)
         {
             this.name = name;
             this.PlayerContract = PlayerContract;
             this.salary = salary;
             this.birthdayYear = birthdayYear;
-            this.previousClubList = clubList;
+            this.previousClubList = previousClubList;
             this.tshirtNumber = tshirtNumber;
             playersList.Add(this);
         }
