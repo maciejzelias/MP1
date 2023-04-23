@@ -50,7 +50,7 @@ namespace mp1
 
             // Asocjacja zwykła
             Player player1 = new Player("Lionel Messi");
-            PlayerContract playerContract1 = new PlayerContract(2137.55f);
+            PlayerContract playerContract1 = new PlayerContract(2137.55f, new List<string> { "attend trainings" });
 
             player1.PlayerContract = playerContract1;
 
@@ -71,7 +71,40 @@ namespace mp1
             Console.WriteLine("Administrator : " + sponsorContract1.AdministratorSponsorContract.Administrator);
             Console.WriteLine("Podpisany kontrakt :  " + administrator1.AdministratorSponsorContracts.Find(e => e == administratorSponsorContract));
 
-            
+            Console.WriteLine();
+            // Asocjacja kwalifikowana
+
+            PageOfContract pageOfContract1 = new PageOfContract("Introduction");
+            PageOfContract pageOfContract2 = new PageOfContract("Termination details");
+
+            playerContract1.addPageOfContract(playerContract1.Pages.Count + 1, pageOfContract1);
+            playerContract1.addPageOfContract(playerContract1.Pages.Count + 1, pageOfContract2);
+
+            Console.WriteLine("Asoacjacja kwalifikowana : \n");
+            Console.WriteLine("konrakt : " + playerContract1);
+            Console.WriteLine("Strony kontraktu : ");
+            var listOfPagesPlayerContract1 = playerContract1.Pages;
+            foreach (var element in listOfPagesPlayerContract1)
+            {
+                Console.WriteLine("Strona nr : " + element.Key + "  zawiera : " + element.Value);
+            }
+            Console.WriteLine("Back reference");
+            Console.WriteLine("Strona zawierajaca : " + pageOfContract1 + " jest przypisana do kontraktu : " + pageOfContract1.PlayerContract + " jest to strona nr : " + pageOfContract1.PlayerContract.Pages.FirstOrDefault(key => key.Value == pageOfContract1).Key);
+            Console.WriteLine("Strona zawierajaca : " + pageOfContract2 + " jest przypisana do kontraktu : " + pageOfContract2.PlayerContract + " jest to strona nr : " + pageOfContract2.PlayerContract.Pages.FirstOrDefault(key => key.Value == pageOfContract1).Key);
+
+            Console.WriteLine();
+
+            // Kompozycja
+            PlayerContract playerContract2 = new PlayerContract(1234.0f, new List<String> { "attend trainings", "attend in sponsored campaigns" });
+            Console.WriteLine("Kontrakt : " + playerContract2 + " składa się z listy zadań : ");
+            var requiredTasksContract1 = playerContract2.RequiredTasks;
+            foreach (Task task in requiredTasksContract1)
+            {
+                Console.WriteLine(task);
+            }
+            Console.WriteLine("Back reference");
+            Task task1 = requiredTasksContract1.First();
+            Console.WriteLine("Zadanie :  " + task1 + " jest przypisane do kontraktu : " + task1.PlayerContract);
         }
 
         // static void SampleData()
