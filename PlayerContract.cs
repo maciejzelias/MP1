@@ -65,11 +65,20 @@ namespace mp1
             }
         }
 
+        public void addTask(Task task)
+        {
+            if (task == null)
+            {
+                throw new ArgumentNullException("Task value can not be null");
+            }
+            this._requiredTasks.Add(task);
+        }
+
         public void addRequiredTasks(List<string> tasks)
         {
             foreach (string desc in tasks)
             {
-                this._requiredTasks.Add(new Task(this, desc));
+                new Task(this, desc);
             }
         }
         public PlayerContract(float salary, List<string> tasks)

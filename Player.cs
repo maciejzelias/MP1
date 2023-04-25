@@ -6,20 +6,27 @@ namespace mp1
     public class Player
     {
 
-        private PlayerContract _playerContract;
+        private List<PlayerContract> _playerContractList = new();
 
-        public PlayerContract PlayerContract
+        public List<PlayerContract> PlayerContractList
         {
-            get => _playerContract;
+            get => _playerContractList.ToList();
             set
             {
-                if (value == PlayerContract) return;
+                if (value == PlayerContractList) return;
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Player contract value can not be null !");
+                    throw new ArgumentNullException("Player contract list value can not be null !");
                 }
-                _playerContract = value;
-                value.player = this;
+                foreach (PlayerContract contract in value)
+                {
+                    if (contract == null)
+                    {
+                        throw new ArgumentNullException("Player contract value can not be null");
+                    }
+                    contract.player = this;
+                }
+                _playerContractList = value;
             }
         }
         private string _name;
@@ -34,6 +41,16 @@ namespace mp1
                 }
                 _name = value;
             }
+        }
+
+        public void signContract(PlayerContract playerContract)
+        {
+            if (playerContract == null)
+            {
+                throw new ArgumentNullException("Player contract value can not be null");
+            }
+            _playerContractList.Add(playerContract);
+            playerContract.player = this;
         }
 
         public Player(string name)

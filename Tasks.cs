@@ -14,6 +14,7 @@ namespace mp1
                     throw new ArgumentNullException("value of player contract can not be null");
                 }
                 _playerContract = value;
+                value.addTask(this);
             }
         }
 

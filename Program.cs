@@ -52,10 +52,11 @@ namespace mp1
             Player player1 = new Player("Lionel Messi");
             PlayerContract playerContract1 = new PlayerContract(2137.55f, new List<string> { "attend trainings" });
 
-            player1.PlayerContract = playerContract1;
+            player1.signContract(playerContract1);
+
 
             Console.WriteLine("Asocjacja zwykła : \n");
-            Console.WriteLine("kontrakt zawodnika : " + player1.name + " " + player1.PlayerContract);
+            Console.WriteLine("kontrakt zawodnika : " + player1.name + " " + player1.PlayerContractList.Find(e => e == playerContract1));
             Console.WriteLine("Zawodnik przypisany do kontraktu : " + playerContract1 + " " + playerContract1.player);
 
             Console.WriteLine();
@@ -90,21 +91,34 @@ namespace mp1
             }
             Console.WriteLine("Back reference");
             Console.WriteLine("Strona zawierajaca : " + pageOfContract1 + " jest przypisana do kontraktu : " + pageOfContract1.PlayerContract + " jest to strona nr : " + pageOfContract1.PlayerContract.Pages.FirstOrDefault(key => key.Value == pageOfContract1).Key);
-            Console.WriteLine("Strona zawierajaca : " + pageOfContract2 + " jest przypisana do kontraktu : " + pageOfContract2.PlayerContract + " jest to strona nr : " + pageOfContract2.PlayerContract.Pages.FirstOrDefault(key => key.Value == pageOfContract1).Key);
+            Console.WriteLine("Strona zawierajaca : " + pageOfContract2 + " jest przypisana do kontraktu : " + pageOfContract2.PlayerContract + " jest to strona nr : " + pageOfContract2.PlayerContract.Pages.FirstOrDefault(key => key.Value == pageOfContract2).Key);
 
             Console.WriteLine();
 
             // Kompozycja
+
+            Console.WriteLine("Kompozycja: \n");
+
             PlayerContract playerContract2 = new PlayerContract(1234.0f, new List<String> { "attend trainings", "attend in sponsored campaigns" });
             Console.WriteLine("Kontrakt : " + playerContract2 + " składa się z listy zadań : ");
-            var requiredTasksContract1 = playerContract2.RequiredTasks;
-            foreach (Task task in requiredTasksContract1)
+            var requiredTasksContract2 = playerContract2.RequiredTasks;
+            foreach (Task task in requiredTasksContract2)
             {
                 Console.WriteLine(task);
             }
-            Console.WriteLine("Back reference");
-            Task task1 = requiredTasksContract1.First();
+            Task task1 = requiredTasksContract2.First();
             Console.WriteLine("Zadanie :  " + task1 + " jest przypisane do kontraktu : " + task1.PlayerContract);
+
+            Console.WriteLine("Back reference");
+
+            Task task2 = new Task(playerContract2, "very hard task nr 3");
+            Console.WriteLine("Kontrakt : " + task2.PlayerContract + " składa się z listy zadań : ");
+            requiredTasksContract2 = task2.PlayerContract.RequiredTasks;
+            foreach (Task task in requiredTasksContract2)
+            {
+                Console.WriteLine(task);
+            }
+            Console.WriteLine("Zadanie : " + task2 + " jest przypisane do kontraktu : " + task2.PlayerContract);
         }
 
         // static void SampleData()
