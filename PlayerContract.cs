@@ -49,7 +49,27 @@ namespace mp1
         }
 
         private Player _player;
-        public Player player { get; set; }
+        public Player player
+        {
+            get => _player;
+            set
+            {
+                if (value == _player) return;
+                if (value == null)
+                {
+                    throw new ArgumentNullException("Player value can not be null");
+                }
+                if (_player != null)
+                {
+                    _player.removePlayerContract(this);
+                }
+                _player = value;
+                if (!value.PlayerContractList.Contains(this))
+                {
+                    value.signContract(this);
+                }
+            }
+        }
         private float _salary;
 
         public float Salary
