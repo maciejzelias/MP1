@@ -13,8 +13,15 @@ namespace mp1
                 {
                     throw new ArgumentNullException("Administrator value can't be null");
                 }
+                if (_administrator != null)
+                {
+                    _administrator.removeAdministratorSponsorContract(this);
+                }
                 _administrator = value;
-                value.addAdministratorSponsorContract(this);
+                if (!value.AdministratorSponsorContracts.Contains(this))
+                {
+                    value.addAdministratorSponsorContract(this);
+                }
             }
         }
 
@@ -28,6 +35,10 @@ namespace mp1
                 if (value == null)
                 {
                     throw new ArgumentNullException("Sponsor contract value can not be null");
+                }
+                if (_sponsorContract != null)
+                {
+                    _sponsorContract.AdministratorSponsorContract = null;
                 }
                 _sponsorContract = value;
                 value.AdministratorSponsorContract = this;

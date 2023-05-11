@@ -31,6 +31,11 @@ namespace mp1
             }
             _administratorSponsorContracts.Add(administratorSponsorContract);
         }
+
+        public void removeAdministratorSponsorContract(AdministratorSponsorContract administratorSponsorContract)
+        {
+            this._administratorSponsorContracts.Remove(administratorSponsorContract);
+        }
         // Period of term Administrator ( in years )
         private int _termOfOffice;
         public int TermOfOffice

@@ -50,21 +50,28 @@ namespace mp1
 
             // Asocjacja zwykła
             Player player1 = new Player("Lionel Messi");
+            Player player2 = new Player("Cristiano Ronaldo");
             PlayerContract playerContract1 = new PlayerContract(2137.55f, new List<string> { "attend trainings" });
 
             player1.signContract(playerContract1);
-
+            playerContract1.player = player2;
 
             Console.WriteLine("Asocjacja zwykła : \n");
             Console.WriteLine("kontrakt zawodnika : " + player1.name + " " + player1.PlayerContractList.Find(e => e == playerContract1));
             Console.WriteLine("Zawodnik przypisany do kontraktu : " + playerContract1 + " " + playerContract1.player);
 
+            Console.WriteLine(player2 + " " + player2.PlayerContractList.Find(e => e == playerContract1));
+
             Console.WriteLine();
             // Asocjacja z atrybutem
             Administrator administrator1 = new Administrator(3, ManagerStatus.manager);
+            Administrator administrator2 = new Administrator(5, ManagerStatus.president);
             SponsorContract sponsorContract1 = new SponsorContract(2137.0f);
 
             AdministratorSponsorContract administratorSponsorContract = new AdministratorSponsorContract(administrator1, sponsorContract1, "Ryanair", SponsorContractType.airlanes);
+
+            administratorSponsorContract.Administrator = administrator2;
+
             Console.WriteLine("Asocjacja z atrybutem : \n");
             Console.WriteLine("Administrator :  " + administratorSponsorContract.Administrator);
             Console.WriteLine("Kotrakt sponsorski: " + administratorSponsorContract.SponsorContract);

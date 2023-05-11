@@ -43,12 +43,18 @@ namespace mp1
             }
         }
 
+        public void removePlayerContract(PlayerContract playerContract)
+        {
+            this._playerContractList.Remove(playerContract);
+        }
+
         public void signContract(PlayerContract playerContract)
         {
             if (playerContract == null)
             {
                 throw new ArgumentNullException("Player contract value can not be null");
             }
+
             _playerContractList.Add(playerContract);
             playerContract.player = this;
         }
